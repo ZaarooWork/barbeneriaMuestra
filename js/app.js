@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         currentIndex = index;
-        const translateValue = -index * 410; // 400 (ancho de imagen) + 10 (margen entre imágenes)
+        const translateValue = -index * 405; // 400 (ancho de imagen) + 10 (margen entre imágenes)
         imageBook.style.transform = 'translateX(' + translateValue + 'px)';
     }
 });
