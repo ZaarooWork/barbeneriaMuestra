@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Inicializa el índice de la imagen actual
     let currentImageIndex = 0;
+	let touchStartX = 0;
+    let touchEndX = 0;
 
     // Función para mostrar la imagen actual
     function showCurrentImage() {
@@ -82,6 +84,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // Agrega event listeners a los botones
     prevButton.addEventListener("click", showPrevImage);
     nextButton.addEventListener("click", showNextImage);
+
+	// Event listeners para eventos táctiles
+    document.addEventListener("touchstart", function (event) {
+        touchStartX = event.touches[0].clientX;
+    });
+
+    document.addEventListener("touchend", function (event) {
+        touchEndX = event.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        let swipeDistance = touchEndX - touchStartX;
+
+        if (swipeDistance > 50) {
+            // Deslizar hacia la derecha
+            showPrevImage();
+        } else if (swipeDistance < -50) {
+            // Deslizar hacia la izquierda
+            showNextImage();
+        }
+    }
 
     // Muestra la primera imagen al cargar la página
     showCurrentImage();
