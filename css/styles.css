@@ -222,6 +222,8 @@ p{
 	/* Estilo para el contenedor de la galería */
 	#imageGallery {
     	text-align: center;
+		margin: 0;
+		padding: 0;
 	}
 
 	/* Estilo para las imágenes en el libro */
@@ -235,8 +237,8 @@ p{
 	#prevButton,
 	#nextButton {
     	margin-top: 10px; /* Ajusta el margen según sea necesario */
-		background-color: white;
-		color: black;
+		background-color: #3131;
+		color: white;
 		font-size: 35px;
 	}
  
