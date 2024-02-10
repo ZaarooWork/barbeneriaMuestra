@@ -213,14 +213,15 @@ p{
 }
 
 @media only screen and (max-width: 900px) {
- 	/* .container{
+ 	.container{
 		margin: 0;
-	} */
+	}
  
 	#imageGallery {
 		position: relative;
 		overflow: hidden;
 		padding: 0;
+		margin: 0;
 	}
 	
 	#imageBook {
@@ -229,7 +230,7 @@ p{
 	}
 	
 	.book1 img {
-		margin-right: 10px; /* Espacio entre las imágenes */
+		margin-right: 20px; /* Espacio entre las imágenes */ 
 	}
 	
 	#prevButton, #nextButton {
