@@ -47,35 +47,42 @@ for (var i = 0; i < uno.length; i++) {
 	});
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const imageBook = document.getElementById('imageBook');
-    const prevButton = document.getElementById('prevButton');
-    const nextButton = document.getElementById('nextButton');
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtén las imágenes y los botones
+    let images = document.querySelectorAll(".book1 img");
+    let prevButton = document.getElementById("prevButton");
+    let nextButton = document.getElementById("nextButton");
 
-    let currentIndex = 0;
+    // Inicializa el índice de la imagen actual
+    let currentImageIndex = 0;
 
-    nextButton.addEventListener('click', function () {
-        showImage(currentIndex + 1);
-    });
+    // Función para mostrar la imagen actual
+    function showCurrentImage() {
+        // Oculta todas las imágenes
+        images.forEach(function (image) {
+            image.style.display = "none";
+        });
 
-    prevButton.addEventListener('click', function () {
-        showImage(currentIndex - 1);
-    });
-
-    function showImage(index) {
-        const totalImages = imageBook.children.length;
-
-        if (index < 0) {
-            index = totalImages - 1;
-        } else if (index >= totalImages) {
-            index = 0;
-        }
-
-        currentIndex = index;
-        const translateValue = -index * 410; // 400 (ancho de imagen) + 10 (margen entre imágenes)
-        imageBook.style.transform = 'translateX(' + translateValue + 'px)';
+        // Muestra la imagen actual
+        images[currentImageIndex].style.display = "block";
     }
+
+    // Función para mostrar la siguiente imagen
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showCurrentImage();
+    }
+
+    // Función para mostrar la imagen anterior
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        showCurrentImage();
+    }
+
+    // Agrega event listeners a los botones
+    prevButton.addEventListener("click", showPrevImage);
+    nextButton.addEventListener("click", showNextImage);
+
+    // Muestra la primera imagen al cargar la página
+    showCurrentImage();
 });
-
-
-

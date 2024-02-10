@@ -216,42 +216,28 @@ p{
  	.container{
 		margin: 0;
 	}
- 
+
+	/* Estilo para el contenedor de la galería */
 	#imageGallery {
-		position: relative;
-		overflow: hidden;
-		padding: 0;
-		margin: 0;
-	}
-	
-	#imageBook {
-		display: flex;
-		transition: transform 0.5s ease-in-out;
-	}
-	
-	.book1 img {
-		margin-right: 20px; /* Espacio entre las imágenes */ 
-	}
-	
-	#prevButton, #nextButton {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		padding: 10px;
-		cursor: pointer;
-		background-color: white;
-		color: black;
-		font-size: 40px;
-	}
-	
-	#prevButton {
-		left: 10px;
-	}
-	
-	#nextButton {
-		right: 10px;
+    	text-align: center;
 	}
 
+	/* Estilo para las imágenes en el libro */
+	.book1 {
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+	}
+
+	/* Estilo para los botones de navegación */
+	#prevButton,
+	#nextButton {
+    	margin-top: 10px; /* Ajusta el margen según sea necesario */
+		background-color: white;
+		color: black;
+		font-size: 35px;
+	}
+ 
     /* Oculta la galería de imágenes en modo no responsive */
     #flipBook {
         display: none;
@@ -302,4 +288,3 @@ este media seria la version libro
 	  }
 }
  */
-
